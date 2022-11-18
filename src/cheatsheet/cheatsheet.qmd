@@ -1,0 +1,97 @@
+---
+title: "PsyBsc 8 Cheatsheet"
+editor: visual
+theme: cosmo
+format: html
+highlight-style: github
+---
+
+## Vorwort
+
+Dieses Dokument soll Ihnen eine Unterstützung sein, um die das R-Script zum Seminar besser zu verstehen. Falls Sie Fehler finden oder Fragen haben, melden Sie es bitte über das OLAT-Forum oder Fragen Sie die Studentische Hilfskraft Ihrer Seminargruppe oder melden Sie sich bei Herrn Farugie [farugie\@psych.uni-frankfurt.de](mailto:farugie@psych.uni-frankfurt.de){.email}.
+
+## Installation der Packages
+
+Zunächst sollten Sie die richtigen Packages installieren bzw. laden. Für die Itemanalyse benötigen Sie folgende Packages:
+
+-   tidyverse (läd unter anderem readr für das Einlesen von Daten und dplyr für das Manipulieren von Daten)
+
+-   psych
+-   janitor
+-   sjPlot
+-   sjmisc
+
+::: panel-tabset
+
+### Normaler Weg
+
+Die "klassische" Möglichkeit ist es, die Packages mit der Funktion `install.packages` zu installieren. Wenn Sie mehrere Packages gleichzeitig installieren wollen, können Sie diese vorher in einem Vektor zu speichern und nachfolgend alle in einem Schritt zu installieren:
+
+```{r}
+#| output: false
+#| eval: false
+packages <- c("psych", "janitor", "sjPlot", "sjmisc", "tidyverse")
+if (!packages %in% installed.packages()) {
+  install.packages(packages, repos = "http://cran.us.r-project.org")
+}
+
+```
+
+### Alternativer Weg
+
+Alternativ, wenn Sie sich die "Arbeit" ersparen wollen, bei jedem String Anführungszeichen zu setzen, können Sie das `pacman` Package nutzen. Das praktische hierbei ist, das die Funktion `p_load` des pacman Packages gleichzeitig die Installation sowie das Laden (also so `install.package() + library()`) durchführt.
+
+```{r}
+#| output: false
+#| eval: false
+
+if (!"pacman" %in% installed.packages()) {
+  install.packages("pacman", repos = "http://cran.us.r-project.org")
+}
+
+pacman::p_load(tidyverse, psych, janitor, sjPlot, sjmisc)
+```
+
+### Manueller Weg
+
+Eine letzte Möglichkeit ist des, das Interface von RStudio manuell zu nutzen, um die Packages zu installieren.
+
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+
+knitr::include_graphics("install_menu.png")
+knitr::include_graphics("install_packages.png")
+
+
+```
+:::
+
+
+## Datensatz laden
+
+
+Im Ordner "**Gemeinsame Dokumente aller Gruppen**" finden Sie den den Unterordner "**Unterlagen für R**". In diesem Ordner finden Sie neben dem Datensatz ("**GIS-data.csv**") noch folgende Hilfreiche Dokumente:
+
+-   Codebook zum Datensatz
+-   Das R-Script aus dem Tutorial
+
+## Einlesen der Daten
+
+
+[**Package:**]{.underline} [readr](https://readr.tidyverse.org/)
+
+[**Befehl:**]{.underline} `read_csv("NameDerDaten.csv")`  Für .csv Dateien)
+
+[**Tipp:**]{.underline} 
+
+- Nutzen Sie die Help Spalte unten rechts im Bildschirm, sie kann wichtige Hinweise zur benötigten Syntax geben. → „F1" wenn der Cursor auf dem Package oder dem Befehl ist!
+- damit die Daten geladen werden können, muss das Working Directory entsprechend angepasst werden (Funktion: `setwd("IhrPfad")`)
+
+Darüber hinaus sollte separat der Fragebogen (z. B. in Form eines Word, pdf, oder Exceldokuments) vorliegen, wie er ausgegeben wurde, um auf diese Information während der Bearbeitung zurückgreifen zu können und die Übersicht zu behalten. Des Weiteren sollten Sie Ihre Datenausgabe (Plots und Tabellen) direkt abspeichern.
+
+
+
+
+
