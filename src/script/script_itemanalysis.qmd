@@ -5,6 +5,7 @@ subtitle  : "Itemanalyse"
 author    : "Luca Schnatz & Arieja Farugie"
 date: "`r Sys.Date()`"
 
+  
 code-overflow: wrap
 code-block-bg: true
 code-block-border-left: "#8800FF"
@@ -28,7 +29,8 @@ Bevor wir mit der Analyse beginnen können, muss der Datensatz eingelesen werden
 ```{r}
 #| message: false
 library(tidyverse) 
-data_gis_raw <- read_csv("data/GIS-data.csv")
+library(here)
+data_gis_raw <- read_csv(here("src/data/GIS-data.csv"))
 
 head(data_gis_raw) 
 
@@ -248,6 +250,5 @@ omega_items <- omega(data_gis_final,
                      plot = FALSE)
 omega_items$omega.tot
 omega_items$alpha
-
-
 ```
+

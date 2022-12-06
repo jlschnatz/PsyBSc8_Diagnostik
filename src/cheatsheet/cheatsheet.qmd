@@ -17,12 +17,14 @@ Zunächst sollten Sie die richtigen Packages installieren bzw. laden. Für die I
 -   tidyverse (läd unter anderem readr für das Einlesen von Daten und dplyr für das Manipulieren von Daten)
 
 -   psych
+
 -   janitor
+
 -   sjPlot
+
 -   sjmisc
 
 ::: panel-tabset
-
 ### Normaler Weg
 
 Die "klassische" Möglichkeit ist es, die Packages mit der Funktion `install.packages` zu installieren. Wenn Sie mehrere Packages gleichzeitig installieren wollen, können Sie diese vorher in einem Vektor zu speichern und nachfolgend alle in einem Schritt zu installieren:
@@ -56,7 +58,6 @@ pacman::p_load(tidyverse, psych, janitor, sjPlot, sjmisc)
 
 Eine letzte Möglichkeit ist des, das Interface von RStudio manuell zu nutzen, um die Packages zu installieren.
 
-
 ```{r}
 #| echo: false
 #| layout-ncol: 2
@@ -68,9 +69,7 @@ knitr::include_graphics("install_packages.png")
 ```
 :::
 
-
 ## Datensatz laden
-
 
 Im Ordner "**Gemeinsame Dokumente aller Gruppen**" finden Sie den den Unterordner "**Unterlagen für R**". In diesem Ordner finden Sie neben dem Datensatz ("**GIS-data.csv**") noch folgende Hilfreiche Dokumente:
 
@@ -79,19 +78,13 @@ Im Ordner "**Gemeinsame Dokumente aller Gruppen**" finden Sie den den Unterordne
 
 ## Einlesen der Daten
 
-
 [**Package:**]{.underline} [readr](https://readr.tidyverse.org/)
 
-[**Befehl:**]{.underline} `read_csv("NameDerDaten.csv")`  Für .csv Dateien)
+[**Befehl:**]{.underline} `read_csv("NameDerDaten.csv")` Für .csv Dateien)
 
-[**Tipp:**]{.underline} 
+[**Tipp:**]{.underline}
 
-- Nutzen Sie die Help Spalte unten rechts im Bildschirm, sie kann wichtige Hinweise zur benötigten Syntax geben. → „F1" wenn der Cursor auf dem Package oder dem Befehl ist!
-- damit die Daten geladen werden können, muss das Working Directory entsprechend angepasst werden (Funktion: `setwd("IhrPfad")`)
+-   Nutzen Sie die Help Spalte unten rechts im Bildschirm, sie kann wichtige Hinweise zur benötigten Syntax geben. → „F1" wenn der Cursor auf dem Package oder dem Befehl ist!
+-   damit die Daten geladen werden können, muss das Working Directory entsprechend angepasst werden (Funktion: `setwd("IhrPfad")`)
 
 Darüber hinaus sollte separat der Fragebogen (z. B. in Form eines Word, pdf, oder Exceldokuments) vorliegen, wie er ausgegeben wurde, um auf diese Information während der Bearbeitung zurückgreifen zu können und die Übersicht zu behalten. Des Weiteren sollten Sie Ihre Datenausgabe (Plots und Tabellen) direkt abspeichern.
-
-
-
-
-
