@@ -269,6 +269,11 @@ tab_fa(
   title = "Faktorenanalyse",
   )
 
+ psych::fa(data_gis_final, nfactors = 1) %>%
+  chuck("loadings") %>%
+  as.data.frame.table() %>%
+  tab_df()
+
 ```
 
 ## Finale Modellspezifizierung
@@ -431,9 +436,10 @@ data_gis_fa1 %>%
   geom_histogram(
     bins = 30,
     alpha = 0.7,
-    show.legend = FALSE
+    show.legend = FALSE,
+    fill = "lightgrey"
   ) +
-  stat_theodensity(aes(y = after_stat(count), color = factor)) +
+  stat_theodensity(aes(y = after_stat(count), color = factor), color = "darkblue") +
   facetted_pos_scales(
     x = list(
       factor == "f1" ~ scale_x_continuous(limits = c(0, 30)),
