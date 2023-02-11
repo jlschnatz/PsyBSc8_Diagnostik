@@ -42,7 +42,7 @@ Als Erinnerung können wir uns nochmal die psychometrische Eigenschaften der bei
 
 ```{r}
 library(sjPlot)
-sjt.itemanalysis(df = data_gis_final)
+sjt.itemanalysis(df = data_gis_final, factor.groups.titles = NULL)
 ```
 
 ## Identifikation der Anzahl der Faktoren
@@ -272,7 +272,11 @@ tab_fa(
  psych::fa(data_gis_final, nfactors = 1) %>%
   chuck("loadings") %>%
   as.data.frame.table() %>%
-  tab_df()
+   select(Item = Var1, Loading = Freq) %>%
+   tab_df()
+ 
+ 
+ fa(data_gis_final, nfactors = 1, fm = "pa")$loadings
 
 ```
 
